@@ -1,3 +1,4 @@
+import 'package:InstaDownloader/views/widgets/switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -77,6 +78,32 @@ class HomeScreen extends StatelessWidget {
                 height: 250,
               ),
             ),
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Fast Service",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "When Fast Service is enabled,\nyou can download Instagram posts automatically",
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+              CustomSwitch(),
+            ],
           ),
         ],
       ),
