@@ -1,3 +1,4 @@
+import 'package:InstaDownloader/views/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,6 +24,7 @@ class MainApp extends StatelessWidget {
           backgroundColor: const Color(0xFF140F2D),
           elevation: 0,
         ),
+        body: HomeScreen(),
       ),
     );
   }
