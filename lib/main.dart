@@ -1,4 +1,5 @@
 import 'package:InstaDownloader/bloc/switch_bloc.dart';
+import 'package:InstaDownloader/views/screens/download.dart';
 import 'package:InstaDownloader/views/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +36,12 @@ class MainApp extends StatelessWidget {
           backgroundColor: const Color(0xFF140F2D),
           elevation: 0,
         ),
-        body: HomeScreen(),
+        body: const Stack(
+          children: [
+            HomeScreen(),
+            DownloadsScreen(),
+          ],
+        ),
       ),
     );
   }
