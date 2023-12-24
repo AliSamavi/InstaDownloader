@@ -31,6 +31,7 @@ class MainApp extends StatelessWidget {
         ),
       ),
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xFF140F2D),
         appBar: AppBar(
           backgroundColor: const Color(0xFF140F2D),
