@@ -41,7 +41,10 @@ class HomeScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         child: SvgPicture.asset(
                           "assets/icons/link.svg",
-                          color: Colors.grey.shade600,
+                          colorFilter: ColorFilter.mode(
+                            Colors.grey.shade600,
+                            BlendMode.srcIn,
+                          ),
                         ),
                       ),
                       filled: true,
@@ -60,22 +63,35 @@ class HomeScreen extends StatelessWidget {
                     width: 60,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF413DB5),
                       borderRadius: BorderRadius.circular(15),
+                      gradient: const LinearGradient(
+                        colors: [Colors.blue, Colors.green],
+                        begin: Alignment(0, -1),
+                        end: Alignment(0, 1),
+                      ),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.blue,
+                          blurRadius: 5,
+                          offset: Offset(0, -2.5),
+                        ),
+                        BoxShadow(
+                          color: Colors.green,
+                          blurRadius: 5,
+                          offset: Offset(0, 2.5),
+                        ),
+                      ],
                     ),
-                    child: SvgPicture.asset("assets/icons/download.svg"),
+                    child: SvgPicture.asset(
+                      "assets/icons/download.svg",
+                      colorFilter: const ColorFilter.mode(
+                        Color(0xFF140F2D),
+                        BlendMode.srcIn,
+                      ),
+                    ),
                   ),
                 ),
               ],
-            ),
-          ),
-          Center(
-            child: Transform.rotate(
-              angle: 50 * 3.14159 / 180,
-              child: Image.asset(
-                "assets/images/rocket.png",
-                height: 250,
-              ),
             ),
           ),
         ],
