@@ -1,16 +1,25 @@
 import 'dart:convert';
-
-import 'package:http/http.dart' as http;
+import 'dart:io';
 
 class Services {
   static Future<Map<String, dynamic>?> get(
     String url,
-    Map<String, String> headers,
+    List<Cookie> cookies,
   ) async {
-    http.Response re = await http.get(Uri.parse(url), headers: headers);
+    try {
+      HttpClient client = HttpClient();
+      HttpClientRequest req = await client.getUrl(Uri.parse(url));
 
-    if (re.statusCode == 200) {
-      return jsonDecode(re.body);
+      req.cookies.addAll(cookies);
+
+      HttpClientResponse res = await req.close();
+
+      if (res.statusCode == 200) {
+        String json = await res.transform(utf8.decoder).join();
+        return jsonDecode(json);
+      }
+    } catch (e) {
+      return null;
     }
 
     return null;
