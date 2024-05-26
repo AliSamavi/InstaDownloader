@@ -1,7 +1,12 @@
 import 'package:InstaDownloader/Core/Themes/themes.dart';
+import 'package:InstaDownloader/Core/Utils/data_keeper.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MainApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  DataKeeper().loadCookies();
+  runApp(const MainApp());
+}
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
