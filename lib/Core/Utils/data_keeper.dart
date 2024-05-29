@@ -14,6 +14,8 @@ class DataKeeper {
     WebviewCookieManager manager = WebviewCookieManager();
     final cookie = await manager.getCookies("https://www.instagram.com");
 
+    _cookies.clear();
+
     for (Cookie element in cookie) {
       _cookies.add(Cookie(element.name, element.value));
     }
