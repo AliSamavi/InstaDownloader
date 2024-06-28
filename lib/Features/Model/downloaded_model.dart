@@ -5,18 +5,15 @@ part 'downloaded_model.g.dart';
 @HiveType(typeId: 1)
 class DownloadedModel extends HiveObject {
   @HiveField(0)
-  String instagramUrl;
+  String url;
   @HiveField(1)
-  String downloadUrl;
+  String thumbnail;
   @HiveField(2)
-  String thumbnailUrl;
-  @HiveField(3)
-  String videoPath;
+  String video;
 
   DownloadedModel({
-    required this.instagramUrl,
-    required this.downloadUrl,
-    required this.thumbnailUrl,
-    required this.videoPath,
+    required this.url,
+    required this.thumbnail,
+    required this.video,
   });
 }

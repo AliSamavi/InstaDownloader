@@ -17,25 +17,22 @@ class DownloadedModelAdapter extends TypeAdapter<DownloadedModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return DownloadedModel(
-      instagramUrl: fields[0] as String,
-      downloadUrl: fields[1] as String,
-      thumbnailUrl: fields[2] as String,
-      videoPath: fields[3] as String,
+      url: fields[0] as String,
+      thumbnail: fields[1] as String,
+      video: fields[2] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, DownloadedModel obj) {
     writer
-      ..writeByte(4)
-      ..writeByte(0)
-      ..write(obj.instagramUrl)
-      ..writeByte(1)
-      ..write(obj.downloadUrl)
-      ..writeByte(2)
-      ..write(obj.thumbnailUrl)
       ..writeByte(3)
-      ..write(obj.videoPath);
+      ..writeByte(0)
+      ..write(obj.url)
+      ..writeByte(1)
+      ..write(obj.thumbnail)
+      ..writeByte(2)
+      ..write(obj.video);
   }
 
   @override
