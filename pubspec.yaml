@@ -13,6 +13,7 @@ dependencies:
   webview_cookie_manager: ^2.0.6
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  video_player: ^2.9.1
 
 dev_dependencies:
   flutter_test:
