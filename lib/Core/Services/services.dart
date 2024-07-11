@@ -12,9 +12,11 @@ class Services {
       HttpClientRequest req = await client.getUrl(Uri.parse(url));
       req.cookies.addAll(cookies);
       HttpClientResponse res = await req.close();
-
-      String json = await res.transform(utf8.decoder).join();
-      return jsonDecode(json);
+      if (res.statusCode == 200) {
+        String json = await res.transform(utf8.decoder).join();
+        return jsonDecode(json);
+      }
+      return {"error": "login"};
     } on SocketException {
       return {"error": "connection"};
     } catch (e) {
