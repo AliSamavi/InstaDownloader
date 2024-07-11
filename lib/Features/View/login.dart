@@ -1,27 +1,44 @@
+import 'package:InstaDownloader/Core/Utils/data_keeper.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class LoginView extends StatelessWidget {
-  LoginView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
   final WebViewController _controller = WebViewController()
     ..loadRequest(Uri.parse("https://www.instagram.com/accounts/login/"))
     ..setJavaScriptMode(JavaScriptMode.unrestricted);
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     _controller.setNavigationDelegate(
       NavigationDelegate(
-        onPageStarted: (url) async {
+        onPageStarted: (url) {
           if (url == "https://www.instagram.com/" ||
-              url.contains("accounts/onetap/")) {
-            await _controller.clearCache();
-            await _controller.clearLocalStorage();
+              url.startsWith("https://www.instagram.com/accounts/onetap/")) {
+            DataKeeper().loadCookies();
             Navigator.of(context).pop();
           }
         },
       ),
     );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.clearCache();
+    _controller.clearLocalStorage();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
