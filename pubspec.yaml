@@ -15,6 +15,7 @@ dependencies:
   hive_flutter: ^1.1.0
   video_player: ^2.9.1
   get: ^4.6.6
+  share_plus: ^9.0.0
 
 dev_dependencies:
   flutter_test:
