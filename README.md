@@ -1,3 +1,3 @@
-# instagram
+# Insta Downloader
 
 A new Flutter project.
